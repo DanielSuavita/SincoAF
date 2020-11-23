@@ -10,8 +10,8 @@ namespace SincoAF.Utils {
         protected SecureString password { get; set; }
 
         protected Connection() {
-            this.user = "";
-            this.ConnectionString = "";
+            this.ConnectionString = "server=USUARIO-PC; database=SINCOAFBD;  integrated security = true";
+            this.user = "root";
             this.password = new SecureString();
         }
 

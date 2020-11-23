@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,6 +77,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -108,9 +112,9 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Services\OrderService.asmx" />
-    <Content Include="Services\ProductService.asmx" />
-    <Content Include="Services\UsersService.asmx" />
+    <Content Include="Services\OrderService.svc" />
+    <Content Include="Services\ProductService.svc" />
+    <Content Include="Services\UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -127,22 +131,24 @@
     <Compile Include="Models\Entitites\ProductEntity.cs" />
     <Compile Include="Models\Entitites\UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\OrderService.asmx.cs">
-      <DependentUpon>OrderService.asmx</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Services\IOrderService.cs" />
+    <Compile Include="Services\IProductService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\OrderService.svc.cs">
+      <DependentUpon>OrderService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\ProductService.asmx.cs">
-      <DependentUpon>ProductService.asmx</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Services\ProductService.svc.cs">
+      <DependentUpon>ProductService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\UsersService.asmx.cs">
-      <DependentUpon>UsersService.asmx</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Services\UserService.svc.cs">
+      <DependentUpon>UserService.svc</DependentUpon>
     </Compile>
     <Compile Include="Utils\Connection.cs" />
     <Compile Include="Utils\DatabaseConnection.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

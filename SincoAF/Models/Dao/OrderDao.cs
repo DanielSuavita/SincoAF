@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using SincoAF.Interfaces;
@@ -11,14 +12,18 @@ namespace SincoAF.Models.Dao {
 
         private DatabaseConnection Connection;
         public List<OrderEntity> OrderList;
+        public ArrayList OrderData;
+
 
         public OrderDao() {
             Connection = new DatabaseConnection();
         }
 
         public bool Create(OrderEntity Order) {
+            string[] ProductParams = { "@NAME" };
             try {
-                Connection.Save("");
+                OrderData.Add("");
+                Connection.Save("", ProductParams, OrderData);
                 return true;
             } catch {
                 return false;
@@ -26,8 +31,10 @@ namespace SincoAF.Models.Dao {
         }
 
         public bool Delete(OrderEntity Order) {
+            string[] ProductParams = { "@NAME" };
             try {
-                Connection.Save("");
+                OrderData.Add("");
+                Connection.Save("", ProductParams, OrderData);
                 return true;
             } catch {
                 return false;
@@ -35,8 +42,10 @@ namespace SincoAF.Models.Dao {
         }
 
         public List<OrderEntity> Select() {
+            string[] ProductParams = { "@NAME" };
             try {
-                Connection.Select("");
+                OrderData.Add("");
+                Connection.Select("", ProductParams, OrderData);
                 return OrderList;
 
             } catch {
@@ -45,8 +54,10 @@ namespace SincoAF.Models.Dao {
         }
 
         public bool Update(OrderEntity Order) {
+            string[] ProductParams = { "@NAME" };
             try {
-                Connection.Save("");
+                OrderData.Add("");
+                Connection.Save("", ProductParams, OrderData);
                 return true;
             } catch {
                 return false;
