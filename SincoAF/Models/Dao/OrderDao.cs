@@ -20,10 +20,13 @@ namespace SincoAF.Models.Dao {
         }
 
         public bool Create(OrderEntity Order) {
-            string[] ProductParams = { "@NAME" };
+            string[] OrderParams = { "@USERID", "@CREATEDAT", "@CONCEPT", "@STATEID" };
             try {
-                OrderData.Add("");
-                Connection.Save("", ProductParams, OrderData);
+                OrderData.Add(Order.UserId);
+                OrderData.Add(Order.CreatedAt);
+                OrderData.Add(Order.Concept);
+                OrderData.Add(Order.StateId);
+                Connection.Save("CREATEORDER", OrderParams, OrderData);
                 return true;
             } catch {
                 return false;
@@ -31,10 +34,10 @@ namespace SincoAF.Models.Dao {
         }
 
         public bool Delete(OrderEntity Order) {
-            string[] ProductParams = { "@NAME" };
+            string[] OrderParams = { "@USERID", "@CREATEDAT", "@CONCEPT", "@STATEID" };
             try {
                 OrderData.Add("");
-                Connection.Save("", ProductParams, OrderData);
+                Connection.Save("", OrderParams, OrderData);
                 return true;
             } catch {
                 return false;
@@ -42,10 +45,10 @@ namespace SincoAF.Models.Dao {
         }
 
         public List<OrderEntity> Select() {
-            string[] ProductParams = { "@NAME" };
+            string[] OrderParams = { "@NAME" };
             try {
                 OrderData.Add("");
-                Connection.Select("", ProductParams, OrderData);
+                Connection.Select("", OrderParams, OrderData);
                 return OrderList;
 
             } catch {
@@ -54,10 +57,10 @@ namespace SincoAF.Models.Dao {
         }
 
         public bool Update(OrderEntity Order) {
-            string[] ProductParams = { "@NAME" };
+            string[] OrderParams = { "@USERID", "@CREATEDAT", "@CONCEPT", "@STATEID" };
             try {
                 OrderData.Add("");
-                Connection.Save("", ProductParams, OrderData);
+                Connection.Save("", OrderParams, OrderData);
                 return true;
             } catch {
                 return false;

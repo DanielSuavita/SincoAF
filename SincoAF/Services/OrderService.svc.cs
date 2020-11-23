@@ -3,13 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Activation;
 using System.Text;
+using SincoAF.Models.Entitites;
+using SincoAF.Models.Dao;
 
 namespace SincoAF.Services {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "OrderService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select OrderService.svc or OrderService.svc.cs at the Solution Explorer and start debugging.
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class OrderService : IOrderService {
-        public void DoWork() {
+
+        OrderDao OrderDao;
+        OrderEntity OrderEntity;
+
+        public OrderService() {
+            OrderDao = new OrderDao();
+        }
+
+        public void CreateOrder(int _UserId, string _Concept, int _StateId) {
+            OrderEntity = new OrderEntity(_UserId, new DateTime(), _Concept, _StateId, new DateTime());
+            OrderDao.Create(OrderEntity);
+        }
+
+        public void DeleteOrder(int id) {
+            OrderEntity.id = 2;
+            OrderDao.Create(OrderEntity);
+        }
+
+        public void SelectOrder() {
+            OrderEntity.id = 2;
+            OrderDao.Create(OrderEntity);
+        }
+
+        public void UpdateOrder(string _Concept, int _StateId) {
+            OrderEntity = new OrderEntity( _Concept, _StateId, new DateTime());
+            OrderDao.Create(OrderEntity);
         }
     }
 }

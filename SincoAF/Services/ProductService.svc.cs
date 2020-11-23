@@ -4,12 +4,39 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.ServiceModel.Activation;
+using SincoAF.Models.Entitites;
+using SincoAF.Models.Dao;
 
 namespace SincoAF.Services {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ProductService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select ProductService.svc or ProductService.svc.cs at the Solution Explorer and start debugging.
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ProductService : IProductService {
-        public void DoWork() {
+
+        ProductDao ProductDao;
+        ProductEntity ProductEntity;
+
+        public ProductService() {
+            ProductDao = new ProductDao();
+        }
+
+        public void CreateProduct(int _Code, string _Name, int _Quantity, int _Price, int _StateId) {
+            ProductEntity = new ProductEntity(_Code, _Name, new DateTime(), _Quantity, _Price, _StateId);
+            ProductDao.Create(ProductEntity);
+        }
+
+        public void DeleteProduct(int id) {
+            ProductEntity.id = 2;
+            ProductDao.Create(ProductEntity);
+        }
+
+        public void SelectProduct() {
+            ProductEntity.id = 2;
+            ProductDao.Create(ProductEntity);
+        }
+
+        public void UpdateProduct(string _Name, int _Quantity, int _Price, int _StateId) {
+            ProductEntity = new ProductEntity(0, _Name, new DateTime(), _Quantity, _Price, _StateId);
+            ProductDao.Update(ProductEntity);
         }
     }
 }
