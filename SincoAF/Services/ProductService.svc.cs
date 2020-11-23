@@ -24,8 +24,7 @@ namespace SincoAF.Services {
 
 
         public Boolean DeleteProduct(int _Id) {
-            ProductEntity.id = _Id;
-            return ProductDao.Delete(ProductEntity);
+            return ProductDao.Delete(_Id);
         }
 
 
@@ -43,5 +42,7 @@ namespace SincoAF.Services {
             ProductEntity = new ProductEntity(0, _Name, new DateTime(), _Quantity, _Price, _StateId);
             return ProductDao.Update(ProductEntity);
         }
+
+
     }
 }

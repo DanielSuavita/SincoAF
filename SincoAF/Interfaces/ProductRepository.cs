@@ -7,7 +7,7 @@ namespace SincoAF.Interfaces {
 
         Boolean Create(ProductEntity Product);
         Boolean Update(ProductEntity Product);
-        Boolean Delete(ProductEntity Product);
+        Boolean Delete(int id);
         List<object> Select(string Product, int Code);
         List<object> SelectByOrder(string Concept, int id);
 

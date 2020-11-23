@@ -13,8 +13,8 @@ namespace SincoAF.Controllers {
             return ProductDao.Create(Product);
         }
 
-        public bool Delete(ProductEntity Product) {
-            return ProductDao.Create(Product);
+        public bool Delete(int id) {
+            return ProductDao.Delete(id);
         }
 
         public List<object> Select(string Product, int Code) {

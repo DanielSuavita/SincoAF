@@ -13,8 +13,8 @@ namespace SincoAF.Controllers {
             return UserDao.Create(User);
         }
 
-        public bool Delete(UserEntity User) {
-            return UserDao.Delete(User);
+        public bool Delete(int id) {
+            return UserDao.Delete(id);
         }
 
         public List<object> Select(string name) {

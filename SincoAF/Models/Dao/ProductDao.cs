@@ -37,10 +37,10 @@ namespace SincoAF.Models.Dao {
         }
 
 
-        public bool Delete(ProductEntity Product) {
+        public bool Delete(int id) {
             string[] ProductParams = { "@ID" };
             try {
-                ProductData.Add(Product.id);
+                ProductData.Add(id);
                 return Connection.Save("DELETEPRODUCT", ProductParams, ProductData);
             } catch {
                 return false;

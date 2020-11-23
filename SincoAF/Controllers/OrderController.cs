@@ -13,16 +13,16 @@ namespace SincoAF.Controllers {
             return OrderDao.Create(Order);
         }
 
-        public bool CreateProductsOrder(OrderEntity Order) {
-            return OrderDao.CreateProductsOrder(Order);
+        public bool CreateProductsOrder(int OrderId, int ProductIdr) {
+            return OrderDao.CreateProductsOrder(OrderId, ProductIdr);
         }
 
-        public bool Delete(OrderEntity Order) {
-            return OrderDao.Create(Order);
+        public bool Delete(int id) {
+            return OrderDao.Delete(id);
         }
 
-        public bool DeleteProductsOrder(OrderEntity Order) {
-            return OrderDao.DeleteProductsOrder(Order);
+        public bool DeleteProductsOrder(int id) {
+            return OrderDao.DeleteProductsOrder(id);
         }
 
         public List<object> Select(string Concept, int Code) {
@@ -34,7 +34,7 @@ namespace SincoAF.Controllers {
         }
 
         public bool Update(OrderEntity Order) {
-            return OrderDao.Create(Order);
+            return OrderDao.Update(Order);
         }
     }
 }

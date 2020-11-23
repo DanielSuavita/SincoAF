@@ -35,10 +35,10 @@ namespace SincoAF.Models.Dao {
         }
 
 
-        public bool Delete(UserEntity User) {
+        public bool Delete(int id) {
             string[] UserParams = { "@ID" };
             try {
-                UserData.Add(User.id);
+                UserData.Add(id);
                 Connection.Save("DELETEUSER", UserParams, UserData);
                 return true;
             } catch {
