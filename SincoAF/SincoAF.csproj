@@ -108,15 +108,33 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Services\OrderService.asmx" />
+    <Content Include="Services\ProductService.asmx" />
     <Content Include="Services\UsersService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Interfaces\OrderRepository.cs" />
+    <Compile Include="Interfaces\ProductRepository.cs" />
     <Compile Include="Interfaces\UserRepository.cs" />
+    <Compile Include="Models\Dao\OrderDao.cs" />
+    <Compile Include="Models\Dao\ProductDao.cs" />
     <Compile Include="Models\Dao\UserDao.cs" />
+    <Compile Include="Models\Entitites\OrderEntity.cs" />
+    <Compile Include="Models\Entitites\ProductEntity.cs" />
     <Compile Include="Models\Entitites\UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\OrderService.asmx.cs">
+      <DependentUpon>OrderService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ProductService.asmx.cs">
+      <DependentUpon>ProductService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Services\UsersService.asmx.cs">
       <DependentUpon>UsersService.asmx</DependentUpon>
       <SubType>Component</SubType>

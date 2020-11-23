@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SincoAF.Models;
 
 namespace SincoAF.Interfaces {
-    public interface UserRepository {
+    interface UserRepository {
 
         Boolean Create(UserEntity User);
         Boolean Update(UserEntity User);
