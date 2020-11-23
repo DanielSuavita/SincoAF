@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
+using SincoAF.Models.Entitites;
 
 namespace SincoAF.Services {
     [ServiceContract]
@@ -13,21 +10,37 @@ namespace SincoAF.Services {
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "CreateOrder?userid={_UserId}&concept={_Concept}&stateid={_StateId}")]
-        void CreateOrder(int _UserId, string _Concept, int _StateId);
+        Boolean CreateOrder(int _UserId, string _Concept, int _StateId);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "CreateProductsOrder?orderid={_OrderId}&productid={_ProductId}")]
+        Boolean CreateProductsOrder(int _OrderId, int _ProductId);
 
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "UpdateOrder?concept={_Concept}&stateid={_StateId}")]
-        void UpdateOrder(string _Concept, int _StateId);
+        Boolean UpdateOrder(string _Concept, int _StateId);
 
 
         [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "DeleteOrder?id={id}", ResponseFormat = WebMessageFormat.Json)]
-        void DeleteOrder(int id);
+        [WebInvoke(Method = "POST", UriTemplate = "DeleteOrder?id={_Id}")]
+        Boolean DeleteOrder(int _Id);
 
 
         [OperationContract]
-        [WebInvoke(Method = "POST", UriTemplate = "SelectOrder")]
-        void SelectOrder();
+        [WebInvoke(Method = "POST", UriTemplate = "DeleteProductsOrder?id={_Id}")]
+        Boolean DeleteProductsOrder(int _Id);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "SelectOrder?concept={_Concept}&code={_Code}", ResponseFormat = WebMessageFormat.Json)]
+        string SelectOrder(string _Concept, int _Code);
+
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "SelectByUser?name={_Name}", ResponseFormat = WebMessageFormat.Json)]
+        string SelectByUser(string _Name);
+
     }
 }

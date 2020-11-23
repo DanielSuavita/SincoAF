@@ -8,6 +8,8 @@ namespace SincoAF.Interfaces {
         Boolean Create(ProductEntity Product);
         Boolean Update(ProductEntity Product);
         Boolean Delete(ProductEntity Product);
-        List<ProductEntity> Select();
+        List<object> Select(string Product, int Code);
+        List<object> SelectByOrder(string Concept, int id);
+
     }
 }

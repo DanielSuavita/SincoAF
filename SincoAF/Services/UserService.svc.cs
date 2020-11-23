@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
-using SincoAF.Controllers;
 using SincoAF.Models;
 using SincoAF.Models.Dao;
 using System.ServiceModel.Activation;
@@ -22,9 +16,9 @@ namespace SincoAF.Services {
         }
 
 
-        public void CreateUser(string _name, int _roleid, string _username, string _email) {
+        public void CreateUser(string _Name, int _Roleid, string _Username, string _Email) {
 
-            UserEntity = new UserEntity(_name, new DateTime(), _roleid, _username, _email);
+            UserEntity = new UserEntity(_Name, new DateTime(), _Roleid, _Username, _Email);
             UserDao.Create(UserEntity);
         }
 
@@ -35,17 +29,17 @@ namespace SincoAF.Services {
         }
 
 
-        public void SelectUser() {
-
-            UserDao.Select();
+        public void SelectUser(string name) {
+            UserDao.Select(name);
         }
 
 
-        public void UpdateUser(string _name, int _roleid, string _username, string _email) {
+        public void UpdateUser(string _Name, int _Roleid, string _Username, string _Email) {
 
-            UserEntity = new UserEntity(_name, new DateTime(), _roleid, _username, _email);
+            UserEntity = new UserEntity(_Name, new DateTime(), _Roleid, _Username, _Email);
             UserDao.Update(UserEntity);
         }
+
 
     }
 }

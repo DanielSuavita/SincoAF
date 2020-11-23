@@ -8,7 +8,7 @@ namespace SincoAF.Interfaces {
         Boolean Create(UserEntity User);
         Boolean Update(UserEntity User);
         Boolean Delete(UserEntity User);
-        List<UserEntity> Select();
+        List<object> Select(string name);
 
     }
 }

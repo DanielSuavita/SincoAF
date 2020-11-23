@@ -2,6 +2,7 @@
 using SincoAF.Models.Dao;
 using SincoAF.Interfaces;
 using SincoAF.Models;
+using System;
 
 namespace SincoAF.Controllers {
     public class UserController : UserRepository {
@@ -16,8 +17,8 @@ namespace SincoAF.Controllers {
             return UserDao.Delete(User);
         }
 
-        public List<UserEntity> Select() {
-            return UserDao.Select();
+        public List<object> Select(string name) {
+            return UserDao.Select(name);
         }
 
         public bool Update(UserEntity User) {
