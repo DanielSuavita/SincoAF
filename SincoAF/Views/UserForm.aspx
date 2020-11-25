@@ -1,5 +1,8 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserForm.aspx.cs" Inherits="SincoAF.Views.UserForm" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Users</title>
     <meta charset="utf-8" />
@@ -18,7 +21,7 @@
 
     <section>
         <article>
-            <form id="UsersForm" action="">
+            <form id="UsersForm" action="/User/CreateUser">
                 <div>
                     <label for="name">Nombre</label>
                     <input class="form-control" type="text" name="name" placeholder="Nombre" />

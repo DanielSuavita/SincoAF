@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="../scripts/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../Content/DataTables/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="../Content/jquery-ui.css" />
 </head>
 <body>
     <header>
@@ -18,28 +19,34 @@
 
     <section>
         <article>
-            <form id="UsersForm" action="">
-                <div>
-                    <label for="name">Nombre</label>
-                    <input class="form-control" type="text" name="name" placeholder="Nombre" />
+            <form  id="OrdersForm" method="post" action="../Services/">
+                <div class="col-6">
+                    <label for="concept">Concepto</label>
+                    <input class="form-control" id="concept" type="text" name="concept" placeholder="Nombre"  />
+                </div>
+                <div class="col-6">
+                    <label for="createdat">Fecha</label>
+                    <input class="form-control"  id="createdat" type="text" name="createdat" placeholder="Fecha" />
                 </div>
                 <div>
-                    <label for="name">Email</label>
-                    <input class="form-control" type="text" name="name" placeholder="Nombre" />
+                    <label for="productid">Articulo</label>
+                    <input class="form-control" id="productid" type="text" name="productid" placeholder="Cantidad" />
                 </div>
                 <div>
-                    <label for="name">Rol</label>
-                    <select class="form-control" name="roleid" id="UsersRole">
-                        <option value="">Seleccione un Rol</option>
-                    </select>
+                    <label for="quantity">Cantidad</label>
+                    <input class="form-control"  id="quantity" type="number" name="quantity" placeholder="Cantidad" />
                 </div>
-            <div>
-                <input class="btn orange block" id="SaveBtn" type="submit" value="Guardar" />
-            </div>
+                <div>
+                    <input type="checkbox" name="imported"/>
+                    <label for="imported">Importado</label>
+                </div>
+                <div>
+                    <input class="btn orange block" type="submit" value="Guardar" />
+                </div>
             </form>
         </article>
         <article>
-            <table id="UsersTable">
+            <table id="OrdersTable">
                 <thead>
                     <tr>
                         <td>No</td>
@@ -62,6 +69,7 @@
 
     <script src="../scripts/jquery-3.5.1.min.js"></script>
     <script src="../scripts/DataTables/jquery.dataTables.min.js"></script>
-    <script src="../scripts/js/Users.js"></script>
+    <script src="../scripts/js/Orders.js"></script>
+    <script src="../scripts/jquery-ui.js"></script>
 </body>
 </html>
