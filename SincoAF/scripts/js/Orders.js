@@ -1,5 +1,14 @@
 ﻿$(document).ready(function () {
-    $("#OrdersTable").DataTable();
+    $("#OrdersTable").DataTable({
+        "ajax": '../../Order/Select',
+        columns: [
+                { title: "no" },
+                { title: "concept" },
+                { title: "createdAt" },
+                { title: "imported" },
+                { title: "completed" }
+        ]
+    });
     $("#createdat").datepicker();
     //$("#productid").selectmenu();
 
@@ -33,28 +42,29 @@
 });
 
 
-$( "form" ).on( "submit", function(e) {
+$( "#OrdersForm" ).on( "submit", function(e) {
  
     var dataString = $(this).serialize();
      
     // alert(dataString); return false;
  
-    $.ajax({
-        type: "POST",
-        url: "bin/process.php",
-        data: dataString,
-        success: function () {
-            $("#contact_form").html("<div id='message'></div>");
-            $("#message")
-              .html("<h2>Contact Form Submitted!</h2>")
-              .append("<p>We will be in touch soon.</p>")
-              .hide()
-              .fadeIn(1500, function () {
-                  $("#message").append(
-                    "<img id='checkmark' src='images/check.png' />"
-                  );
-              });
-        }
+    $( "#UsersForm" ).on( "submit", function(e) {
+        var dataString = $(this).serialize();
+        alert("funciona " + dataString);
+ 
+        $.ajax({
+            type: "POST",
+            url: "/Order/Create",
+            data: dataString,
+            success: function () {
+                alert("Orden Creada");
+            },
+            error: function () {
+                alert("No Funciona");
+            }
+        });
+ 
+        e.preventDefault();
     });
  
     e.preventDefault();

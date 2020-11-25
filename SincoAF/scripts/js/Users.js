@@ -1,14 +1,20 @@
 ﻿$(document).ready(function () {
-    $("#UsersTable").DataTable();
+    $("#UsersTable").DataTable({
+        "ajax": '../../Users/Select',
+        columns: [
+            { title: "name" },
+            { title: "quantity" },
+            { title: "price" }
+        ]
+    });
 
     $( "#UsersForm" ).on( "submit", function(e) {
         var dataString = $(this).serialize();
         alert("funciona " + dataString);
-        // alert(dataString); return false;
  
         $.ajax({
             type: "POST",
-            url: "/User/CreateUser",
+            url: "/User/Create",
             data: dataString,
             success: function () {
                 alert("Funciona");
