@@ -11,6 +11,7 @@ namespace SincoAF.Controllers {
 
         UserDao UserDao =  new UserDao();
 
+        [HttpGet]
         public ActionResult Index() {
             return View();
         }

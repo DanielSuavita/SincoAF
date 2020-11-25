@@ -2,13 +2,22 @@
     $("#OrdersTable").DataTable({
         "ajax": '../../Order/Select',
         columns: [
-                { title: "no" },
-                { title: "concept" },
-                { title: "createdAt" },
-                { title: "imported" },
-                { title: "completed" }
+            { title: "no" },
+            { title: "concept" },
+            { title: "createdAt" },
+            { title: "imported" },
+            { title: "completed" }
         ]
     });
+    let ProductsOrderTable = $("#ProductsOrderTable").DataTable();
+    
+    $("#AddRowBtn").on("click", function () {
+        ProductsOrderTable.row.add([
+            $("#productid").val(),
+            $("#quantity").val()
+        ]);
+    });
+
     $("#createdat").datepicker();
     //$("#productid").selectmenu();
 
@@ -68,5 +77,4 @@ $( "#OrdersForm" ).on( "submit", function(e) {
     });
  
     e.preventDefault();
-});
 });

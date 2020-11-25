@@ -29,14 +29,6 @@
                     <input class="form-control"  id="createdat" type="text" name="createdat" placeholder="Fecha" />
                 </div>
                 <div>
-                    <label for="productid">Articulo</label>
-                    <input class="form-control" id="productid" type="text" name="productid" placeholder="Cantidad" />
-                </div>
-                <div>
-                    <label for="quantity">Cantidad</label>
-                    <input class="form-control"  id="quantity" type="number" name="quantity" placeholder="Cantidad" />
-                </div>
-                <div>
                     <input type="checkbox" name="imported"/>
                     <label for="imported">Importado</label>
                 </div>
@@ -44,6 +36,27 @@
                     <input class="btn orange block" type="submit" value="Guardar" />
                 </div>
             </form>
+        </article>
+        <article>
+            <div>
+                <label for="productid">Articulo</label>
+                <input class="form-control" id="productid" type="text" name="productid" placeholder="Cantidad" />
+            </div>
+            <div>
+                <label for="quantity">Cantidad</label>
+                <input class="form-control" id="quantity" type="number" name="quantity" placeholder="Cantidad" />
+            </div>
+            <div>
+                <button id="AddRowBtn" class="btn orange block">Agregar a la orden</button>
+            </div>
+            <table id="ProductsOrderTable" width="100%">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+            </table>
         </article>
         <article>
             <table id="OrdersTable" width="100%"></table>

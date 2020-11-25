@@ -2,9 +2,10 @@
     $("#UsersTable").DataTable({
         "ajax": '../../Users/Select',
         columns: [
+            { title: "no" },
             { title: "name" },
-            { title: "quantity" },
-            { title: "price" }
+            { title: "userName" },
+            { title: "email" }
         ]
     });
 

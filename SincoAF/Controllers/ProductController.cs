@@ -11,6 +11,11 @@ namespace SincoAF.Controllers {
 
         ProductDao ProductDao = new ProductDao();
 
+        [HttpGet]
+        public ActionResult Index() {
+            return View();
+        }
+
         [HttpPost]
         public bool Create(FormCollection form) {
             ProductEntity Product = new ProductEntity(int.Parse(Request.Form["code"]), Request.Form["name"], new DateTime(), int.Parse(Request.Form["quantity"]), int.Parse(Request.Form["price"]), int.Parse(Request.Form["stateid"]));

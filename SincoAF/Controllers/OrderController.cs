@@ -11,6 +11,11 @@ namespace SincoAF.Controllers {
 
         OrderDao OrderDao = new OrderDao();
 
+        [HttpGet]
+        public ActionResult Index() {
+            return View();
+        }
+
         [HttpPost]
         public bool Create(FormCollection form) {
             OrderEntity Order = new OrderEntity(int.Parse(Request.Form["userid"]), new DateTime(), Request.Form["concept"], int.Parse(Request.Form["stateid"]), new DateTime());

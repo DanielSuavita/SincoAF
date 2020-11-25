@@ -464,6 +464,7 @@
     <Content Include="Services\OrderService.svc" />
     <Content Include="Services\ProductService.svc" />
     <Content Include="Services\UserService.svc" />
+    <Content Include="SincoAFDB.sql" />
     <Content Include="Views\Orders.html" />
     <Content Include="Views\Products.html" />
     <Content Include="Views\UserForm.aspx" />

@@ -2,10 +2,9 @@
     $("#ProductTable").DataTable({
         "ajax": '../../Product/Select',
         columns: [
-            { title: "no" },
             { title: "name" },
-            { title: "userName" },
-            { title: "email" }
+            { title: "quantity" },
+            { title: "price" }
         ]
     });
 
